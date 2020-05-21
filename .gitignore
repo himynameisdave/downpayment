@@ -1,0 +1,5 @@
+*.DS_Store
+node_modules/
+
+# App build dir
+app/public/build/
