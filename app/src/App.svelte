@@ -1,88 +1,18 @@
 <script>
-	import BucketRow from './BucketRow.svelte';
+	import Router from 'svelte-spa-router';
+	import Downpayment from './downpayment/Downpayment.svelte';
+	import About from './routes/About.svelte';
+	import NotFound from './routes/NotFound.svelte';
+	import Privacy from './routes/Privacy.svelte';
+	import Terms from './routes/Terms.svelte';
 
-	//	Passed-in function
-	export let downpayment = () => {};
-
-	//	User-input value
-	let inputValue = null;
-	//	The parsed numeric asking price value
-	let value = 0;
-	//	The total min downpayment amount
-	let total = 0;
-	//	Different price buckets
-	let buckets = {
-		FIRST: 0,
-		NEXT: 0,
-		LAST: 0,
+	const routes = {
+		'/': Downpayment,
+		'/about': About,
+		'/privacy': Privacy,
+		'/terms': Terms,
+		'*': NotFound,
 	};
-
-	function formatValue(inputValue) {
-		const {
-			total: updatedTotal,
-			...updatedBuckets
-		} = downpayment(inputValue || '');
-		total = updatedTotal;
-		buckets = updatedBuckets;
-	}
-
-	$: formatValue(inputValue)
-
 </script>
 
-<main>
-	<h1>Downpayment Calculator</h1>	
-	<p>The simplest minimum downpayment calculator on the web for mortgages Canada.</p>
-	<div class="flex">
-		$<input type="text" class="price" placeholder="Asking price" bind:value={inputValue} />
-	</div>
-
-	<BucketRow
-		amount={buckets.FIRST}
-		description="for %5 of the first $500k"
-	/>
-	<BucketRow
-		amount={buckets.NEXT}
-		description="for %10 of the next $500k"
-	/>
-	<BucketRow
-		amount={buckets.LAST}
-		description="for %20 of everything over $1m"
-	/>
-	<div class="total">
-		Total: ${total}
-	</div>
-</main>
-
-<style>
-	main {
-		margin: 0 auto;
-		max-width: 650px;
-		text-align: center;
-		width: 90%;
-	}
-	
-	div.flex {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		font-size: 2rem;
-		font-weight: 700;
-		margin: 0 auto 1rem;
-	}
-
-	input.price {
-		border-radius: 4px;
-		font-weight: normal;
-		margin: 0;
-		width: 100%;
-	}
-	
-	div.box {
-		border: 1px solid #333;
-		align-items: flex-start;
-		display: flex;
-		justify-content: center;
-	}
-
-</style>
+<Router {routes}/>
