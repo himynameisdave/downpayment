@@ -545,6 +545,11 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
+svelte-copyright@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/svelte-copyright/-/svelte-copyright-1.0.0.tgz#3574a985651426174ad8cc5106c9c39cb359f8d5"
+  integrity sha512-zyEhOsN3xzTjxV9kSR39wtb7wPzgPntbG8qyZ9zM3SjnzAtLLedFqSOUmwUywqJNnlDrn0ydnQWvfaa4DKrHLg==
+
 svelte-flex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/svelte-flex/-/svelte-flex-1.1.0.tgz#eba0114fb38318945162c0f7a15673aa0376c386"

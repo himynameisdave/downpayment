@@ -10,6 +10,7 @@
   "dependencies": {
     "comma-number": "^2.0.1",
     "sirv-cli": "^0.4.4",
+    "svelte-copyright": "^1.0.0",
     "svelte-flex": "^1.1.0",
     "svelte-spa-router": "^2.1.0"
   },

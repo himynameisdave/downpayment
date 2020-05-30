@@ -21,8 +21,9 @@
     margin: 0 auto;
     max-width: 650px;
     text-align: center;
-    height: 100%;
-    padding-top: 1rem;
+    height: auto;
+    min-height: 100%;
+    padding: 2rem 0 10rem;
     width: 90%;
     position: relative;
   }  
