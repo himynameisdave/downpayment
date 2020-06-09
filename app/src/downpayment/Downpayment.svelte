@@ -31,7 +31,7 @@
 
 <Layout>
   <h1>Downpayment Calculator</h1>	
-  <p>The simplest minimum downpayment calculator on the web for mortgages Canada.</p>
+  <p>The simplest minimum downpayment calculator on the web for mortgages in Canada.</p>
   <div class="flex">
     $<input type="text" class="price" placeholder="Asking price" bind:value={inputValue} />
   </div>
