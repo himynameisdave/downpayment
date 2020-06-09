@@ -1,8 +1,10 @@
 <script>
+  import { onMount } from 'svelte';
   import BucketRow from '../components/BucketRow.svelte';
   import Layout from '../components/Layout.svelte';
   import downpayment from './require-core.js';
 
+  let inputRef = null;
   //	User-input value
   let inputValue = null;
   //	The parsed numeric asking price value
@@ -25,16 +27,30 @@
     buckets = updatedBuckets;
   }
 
-  $: formatValue(inputValue)
+  //  Focus onMount
+  onMount(() => {
+    if (inputRef) {
+      inputRef.focus();
+    }
+  });
+
+  $: formatValue(inputValue);
 
 </script>
 
 <Layout>
   <h1>Downpayment Calculator</h1>	
   <p>The simplest minimum downpayment calculator on the web for mortgages in Canada.</p>
-  <div class="flex">
-    $<input type="text" class="price" placeholder="Asking price" bind:value={inputValue} />
-  </div>
+  <label class="flex">
+    <span class="label">Asking Price</span>
+    $<input
+      type="text"
+      class="price"
+      placeholder="Asking price"
+      bind:value={inputValue}
+      bind:this={inputRef}
+    />
+  </label>
 
   <BucketRow
     amount={buckets.FIRST}
@@ -57,13 +73,23 @@
 
 <style>
 
-  div.flex {
+  label.flex {
     align-items: center;
     display: flex;
     justify-content: center;
     font-size: 2rem;
     font-weight: 700;
     margin: 0 auto 1rem;
+  }
+
+  label.flex .label {
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
   }
 
   input.price {
