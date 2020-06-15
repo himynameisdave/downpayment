@@ -54,15 +54,15 @@
 
   <BucketRow
     amount={buckets.FIRST}
-    description="for %5 of the first $500k"
+    description="for 5% of the first $500k"
   />
   <BucketRow
     amount={buckets.NEXT}
-    description="for %10 of the next $500k"
+    description="for 10% of the next $500k"
   />
   <BucketRow
     amount={buckets.LAST}
-    description="for %20 of everything over $1m"
+    description="for 20% of everything over $1m"
   />
   <BucketRow
     amount={total}
