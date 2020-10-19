@@ -1,6 +1,17 @@
 <script>
+  import { onMount } from 'svelte';
+
+  let inputRef;
   export let inputValue;
-  export let inputRef;
+
+  function focusInput() {
+    if (inputRef) {
+      inputRef.focus();
+    }
+  }
+
+  onMount(focusInput);
+
 </script>
 
 <style>

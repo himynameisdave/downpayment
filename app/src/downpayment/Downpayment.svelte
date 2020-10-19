@@ -1,15 +1,14 @@
 <script>
   import { onMount } from 'svelte';
+  import { querystring } from 'svelte-spa-router';
+  import { parse as parseQs } from 'query-string';
   import AskingPriceInput from '../components/AskingPriceInput.svelte';
   import BucketRow from '../components/BucketRow.svelte';
   import Layout from '../components/Layout.svelte';
   import downpayment from './require-core.js';
 
-  let inputRef = null;
   //	User-input value
   let inputValue = null;
-  //	The parsed numeric asking price value
-  let value = 0;
   //	The total min downpayment amount
   let total = 0;
   //	Different price buckets
@@ -19,6 +18,16 @@
     LAST: 0,
   };
 
+  //  Parse query params for the asking price, then set it.
+  onMount(() => {
+    // To support cases where the hash might be in the route
+    const { asking } = parseQs(window.location.search || $querystring);
+    if (asking) {
+      inputValue = asking;
+    }
+  });
+
+
   function formatValue(inputValue) {
     const {
       total: updatedTotal,
@@ -27,14 +36,7 @@
     total = updatedTotal;
     buckets = updatedBuckets;
   }
-
-  //  Focus onMount
-  onMount(() => {
-    if (inputRef) {
-      inputRef.focus();
-    }
-  });
-
+  
   $: formatValue(inputValue);
 
 </script>
@@ -45,7 +47,6 @@
   
   <AskingPriceInput
     inputValue={inputValue}
-    inputRef={inputRef}
   />
 
   <BucketRow

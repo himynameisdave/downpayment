@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "comma-number": "^2.0.1",
+    "query-string": "^6.13.6",
     "sirv-cli": "^1.0.8",
     "svelte-copyright": "^1.0.0",
     "svelte-flex": "^1.1.0",
