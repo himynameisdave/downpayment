@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import AskingPriceInput from '../components/AskingPriceInput.svelte';
   import BucketRow from '../components/BucketRow.svelte';
   import Layout from '../components/Layout.svelte';
   import downpayment from './require-core.js';
@@ -41,16 +42,11 @@
 <Layout>
   <h1>Downpayment Calculator</h1>	
   <p>The simplest minimum downpayment calculator on the web for mortgages in Canada.</p>
-  <label class="flex">
-    <span class="label">Asking Price</span>
-    $<input
-      type="text"
-      class="price"
-      placeholder="Asking price"
-      bind:value={inputValue}
-      bind:this={inputRef}
-    />
-  </label>
+  
+  <AskingPriceInput
+    inputValue={inputValue}
+    inputRef={inputRef}
+  />
 
   <BucketRow
     amount={buckets.FIRST}
@@ -70,40 +66,3 @@
     isTotal={true}
   />
 </Layout>
-
-<style>
-
-  label.flex {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0 auto 1rem;
-  }
-
-  label.flex .label {
-    position: absolute !important;
-    height: 1px; 
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap; /* added line */
-  }
-
-  input.price {
-    border-radius: 4px;
-    font-weight: normal;
-    margin: 0;
-    width: 100%;
-  }
-  
-  div.box {
-    border: 1px solid #333;
-    align-items: flex-start;
-    display: flex;
-    justify-content: center;
-  }
-
-</style>
