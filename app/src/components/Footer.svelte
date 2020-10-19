@@ -2,6 +2,7 @@
   import Copyright from 'svelte-copyright';
   import Flex from 'svelte-flex';
   import { link } from 'svelte-spa-router'
+  import { version } from '../../../package.json';
 </script>
 
 <footer>
@@ -24,6 +25,9 @@
       <a href="https://github.com/himynameisdave">Dave Lunny</a>
     </Copyright>
   </div>
+  <div class="version">
+    Version: <a class="version__number" href={`https://github.com/himynameisdave/downpayment/releases/tag/v${version}`} target="_blank">{version}</a>
+  </div>
 </footer>
 
 <style>
@@ -45,6 +49,15 @@
     margin: 0.5rem;
   }
   .copyright {
-    margin: 0.5rem; 
+    margin: 0.5rem 0.5rem 0.25rem;
+  }
+  .version {
+    font-size: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+  .version__number {
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 900;
   }
 </style>
