@@ -35,18 +35,20 @@
     } = downpayment(inputValue || '');
     total = updatedTotal;
     buckets = updatedBuckets;
+
+    console.log('inputValue', inputValue);
   }
-  
+
   $: formatValue(inputValue);
 
 </script>
 
 <Layout>
-  <h1>Downpayment Calculator</h1>	
+  <h1>Downpayment Calculator</h1>
   <p>The simplest minimum downpayment calculator on the web for mortgages in Canada.</p>
-  
+
   <AskingPriceInput
-    inputValue={inputValue}
+    bind:inputValue={inputValue}
   />
 
   <BucketRow
