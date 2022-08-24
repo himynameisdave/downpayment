@@ -10,6 +10,8 @@
 This is a simple [Svelte](https://svelte.dev/)-based web app for determining the legal minimum downpayment for mortgages in Canada. It is not meant to be super comprehensive, for example it doesn't allow you to calculate interest payments etc.
 
 ## In action
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhimynameisdave%2Fdownpayment.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhimynameisdave%2Fdownpayment?ref=badge_shield)
+
 
 You can see it in action over at [**downpaymentcalculator.ca**](https://downpaymentcalculator.ca).
 
@@ -54,3 +56,7 @@ It would be cool to add a simple API for this, it would also be cool to respond 
 ---
 
 _Created by [Dave](https://himynameisdave.com)._
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhimynameisdave%2Fdownpayment.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhimynameisdave%2Fdownpayment?ref=badge_large)
